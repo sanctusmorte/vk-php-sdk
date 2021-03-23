@@ -110,7 +110,7 @@ class Market {
 	 * - @var integer item_id: Item ID.
 	 * - @var string message: Comment text (required if 'attachments' parameter is not specified)
 	 * - @var array[string] attachments: Comma-separated list of objects attached to a comment. The field is submitted the following way: , "'<owner_id>_<media_id>,<owner_id>_<media_id>'", , '' - media attachment type: "'photo' - photo, 'video' - video, 'audio' - audio, 'doc' - document", , '<owner_id>' - media owner id, '<media_id>' - media attachment id, , For example: "photo100172_166443618,photo66748_265827614",
-	 * - @var boolean from_group: '1' - comment will be published on behalf of a community, '0' - on behalf of a user (by default).
+	 * - @var boolean from_I: '1' - comment will be published on behalf of a community, '0' - on behalf of a user (by default).
 	 * - @var integer reply_to_comment: ID of a comment to reply with current comment to.
 	 * - @var integer sticker_id: Sticker ID.
 	 * - @var string guid: Random value to avoid resending one comment.
@@ -601,7 +601,7 @@ class Market {
 	 * @return mixed
 	 */
 
-	public function groupItems() {
+	public function groupItems($access_token, array $params = []) {
 		return $this->request->post('market.groupItems', $access_token, $params);
 	}
 
@@ -615,7 +615,7 @@ class Market {
 	 * @return mixed
 	 */
 
-	public function ungroupItems() {
+	public function ungroupItems($access_token, array $params = []) {
 		return $this->request->post('market.ungroupItems', $access_token, $params);
 	}
 }
