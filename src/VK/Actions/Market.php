@@ -534,6 +534,20 @@ class Market {
 	public function deleteProperty($access_token, array $params = []) {
 		return $this->request->post('market.deleteProperty', $access_token, $params);
 	}
+	
+	/**
+	 * Delete product
+	 * 
+	 * @param string 
+	 * @param array $params
+	 * @throws VKClientException
+	 * @throws VKApiException
+	 * @return mixed
+	 */
+
+	public function deleteProduct($access_token, array $params = []) {
+		return $this->request->post('market.delete', $access_token, $params);
+	}
 
 	/**
 	 * Delete property variant
